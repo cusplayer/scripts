@@ -33,20 +33,4 @@
       </div>
     </div>
   </form>
-  <div class="row mt-2">
-    <div class="col-6">
-      <label for="searchName">Искать по имени:</label>
-      <input type="text" id="searchName" class="form-control" [(ngModel)]="searchName">
-    </div>
-    <div class="col-6">
-      <label for="searchSurname">Искать по фамилии:</label>
-      <input type="text" id="searchSurname" class="form-control" [(ngModel)]="searchSurname">
-    </div>
-  </div>
-  <app-worker
-    *ngFor="let worker of workers | name:searchName:searchSurname"
-    [worker]="worker"
-    (deletedWorker)="deleteWorker($event)"
-    (editedWorker)="editWorker($event)">
-  </app-worker>
 </div>

@@ -2,7 +2,7 @@
   <form [formGroup]="workerForm">
     <div class="row mt-2">
       <div class="col-12">
-        <input type="hidden" id="id" class="form-control" formControlName="id">
+        <input type="hidden" id="id" class="form-control" formControlName="id" [(ngModel)]="id">
         <label for="name">Имя:</label>
         <input type="text" id="name" class="form-control" formControlName="name">
       </div>
@@ -29,24 +29,9 @@
     </div>
     <div class="row mt-2">
       <div class="col-12">
-        <input type="submit" class="btn btn-primary form-control" [disabled]="!workerForm.valid" value="Добавить сотрудника" (click)="submit()">
+        <input type="submit" class="btn btn-primary form-control" [disabled]="!workerForm.valid" value="Изменить" (click)="editWorker()">
       </div>
     </div>
   </form>
-  <div class="row mt-2">
-    <div class="col-6">
-      <label for="searchName">Искать по имени:</label>
-      <input type="text" id="searchName" class="form-control" [(ngModel)]="searchName">
-    </div>
-    <div class="col-6">
-      <label for="searchSurname">Искать по фамилии:</label>
-      <input type="text" id="searchSurname" class="form-control" [(ngModel)]="searchSurname">
-    </div>
-  </div>
-  <app-worker
-    *ngFor="let worker of workers | name:searchName:searchSurname"
-    [worker]="worker"
-    (deletedWorker)="deleteWorker($event)"
-    (editedWorker)="editWorker($event)">
-  </app-worker>
 </div>
+
